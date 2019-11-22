@@ -1,18 +1,24 @@
 package com.scl.domain;
 
+import javax.persistence.*;
+
 /**
  * Created with IntelliJ IDEA.
  * User: chenglu
  * Date: 2019/11/20
  * Description: 图书
  */
+@Entity
+@Table(name = "t_book")
 public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    @Column(name = "book_name")
     private String name;
-
+    @Column(name = "book_author")
     private String author;
-
+    @Column(name = "book_price")
     private double price;
 
     @Override
