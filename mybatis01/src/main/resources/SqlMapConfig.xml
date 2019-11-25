@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="sqlconfig.properties"/>
+    <!--实体类别名-->
+    <typeAliases>
+        <package name="com.scl.domain"/>
+    </typeAliases>
+    <!--类型处理器-->
+    <typeHandlers>
+        <!--自定义处理器,使用此自定义类型处理需要在对应的字段上加入javaType 和 jdbcType-->
+        <typeHandler handler="com.scl.handler.MyTypeHandler" javaType="boolean" jdbcType="NUMERIC"></typeHandler>
+    </typeHandlers>
+    <!--自定义ObjectFactory-->
+    <objectFactory type="com.scl.factory.MyObjectFactory"/>
+    <!--自定义拦截器：可以拦截接口只有四种：
+                Executor.class 执行器
+                StatementHandler.class sql生成处理器
+                ParameterHandler.class 参数处理器
+                ResultHandler.class 结果处理器
+    -->
+    <plugins>
+        <plugin interceptor="com.scl.plugin.MySimpleIntercepter"></plugin>
+    </plugins>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mapper/AuthorDao.xml"/>
+    </mappers>
+</configuration>

@@ -22,7 +22,6 @@ public class BookTest {
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
         Book book = new Book();
-        book.setAuthor("三少");
         book.setName("斗罗大陆");
         book.setPrice(23.5);
         session.save(book);

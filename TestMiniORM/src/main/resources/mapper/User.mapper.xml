@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<orm-mapping>
+    <class name="com.scl.domain.User" table="user">
+        <id name="id" column="id"></id>
+        <property name="name" column="name"></property>
+        <property name="age" column="age"></property>
+        <property name="email" column="email"></property>
+    </class>
+</orm-mapping>

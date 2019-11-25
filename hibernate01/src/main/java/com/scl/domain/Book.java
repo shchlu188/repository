@@ -14,22 +14,10 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "book_name")
+
     private String name;
-    @Column(name = "book_author")
-    private String author;
-    @Column(name = "book_price")
     private double price;
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                ", price=" + price +
-                '}';
-    }
 
     public Integer getId() {
         return id;
@@ -45,14 +33,6 @@ public class Book {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
     }
 
     public double getPrice() {
